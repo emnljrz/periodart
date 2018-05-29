@@ -1,0 +1,7 @@
+name: periodart
+version: 0.0.1
+description: A simple wrapper of DartLang DateTime function.
+author: emnljrz <emnljrz@gmail.com>
+homepage: "https://github.com/emnljrz/periodart"
+environment:
+  sdk: '>= 2.0.0'
