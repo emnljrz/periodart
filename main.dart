@@ -3,7 +3,7 @@ import 'periodart.dart';
 void main() {
   DateTime timeIn = new DateTime.now();
 
-  Period period = new Period(timeIn)..Adjust(-20)..ofYears();
+  Period period = new Period(timeIn)..Adjust(-15)..ofMinutes();
   print(" == PERIOD ==");
   print(timeIn);
   print(period.Display());
