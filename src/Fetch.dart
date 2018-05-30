@@ -30,13 +30,13 @@ class Fetch {
   }
 
   TheRegularTime() {
-    _timePeriod = int.parse(_hour) > 12 ? "PM" : "AM";
+    _timePeriod = int.parse(_hour) >= 12 && int.parse(_minute) > 0 ? "PM" : "AM";
     var nHour = int.parse(_hour) > 12 ? int.parse(_hour) - 12 : _hour;
     return  nHour.toString() + ":" + _minute.toString() + ":" + _second.toString() + " " + _timePeriod;
   }
 
   TheRegularTimeWithMillisecond() {
-    _timePeriod = int.parse(_hour) > 12 ? "PM" : "AM";
+    _timePeriod = int.parse(_hour) >= 12 && int.parse(_minute) > 0  ? "PM" : "AM";
     var nHour = int.parse(_hour) > 12 ? int.parse(_hour) - 12 : _hour;
     return nHour.toString() + ":" + _minute.toString() + ":" + _second.toString() + "." + _mls + " " + _timePeriod;
   }

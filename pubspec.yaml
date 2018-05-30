@@ -4,4 +4,7 @@ description: A simple wrapper of DartLang DateTime function.
 author: emnljrz <emnljrz@gmail.com>
 homepage: "https://github.com/emnljrz/periodart"
 environment:
-  sdk: '>= 1.24.3'
+  sdk: '>=1.0.0 <2.0.0'
+
+dev_dependencies:
+  test: '>=0.12.0 <0.13.0'
