@@ -3,8 +3,5 @@ version: 0.0.3
 description: A simple wrapper of DartLang DateTime function.
 author: emnljrz <emnljrz@gmail.com>
 homepage: "https://github.com/emnljrz/periodart"
-dependecies:
-  Dart: 2.0.0-dev.58.0
-  pana: 0.11.3
 environment:
   sdk: '>= 1.24.3'

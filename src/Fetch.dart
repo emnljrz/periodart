@@ -3,7 +3,7 @@ class Fetch {
   DateTime _baseValue;
   String _year, _month, _day;
   String _hour, _minute, _second, _mls;
-  String _time, _timePeriod;
+  String _timePeriod;
 
 
   Fetch(DateTime dateTimeValue) { 
