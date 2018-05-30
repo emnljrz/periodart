@@ -1,4 +1,7 @@
 # PerioDart
+[![Pub](https://img.shields.io/pub/v/periodart.svg)](https://pub.dartlang.org/packages/periodart)
+[![Build Status](https://travis-ci.org/emnljrz/periodart.svg?branch=master)](https://travis-ci.org/emnljrz/periodart)
+
 Ez Dart DateTime Library :package:
 
 It's a DateTime library for Dart if you want to use it see the file for usage.
