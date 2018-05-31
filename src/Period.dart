@@ -37,19 +37,57 @@ class Period {
   }
 
   ofMonths() {
-    var _year = _baseValue.year.toString().padLeft(2, "0");;
-    var _month = (_baseValue.month + _periodValue).toString().padLeft(2, "0");
-    var _day = _baseValue.day.toString().padLeft(2, "0");
+    var _year = paddedFormat(_baseValue.year);
+    var _month = paddedFormat(_baseValue.month + _periodValue);
+    var _day = _baseValue.day <= 30 ? paddedFormat(_baseValue.day) : paddedFormat(endOfTheMonth((_baseValue.month + _periodValue)));
 
     _newValue = DateTime.parse(_year + "-" + _month + "-" + _day);
   }
   
   ofYears() {
-    var _year = (_baseValue.year  + _periodValue).toString().padLeft(2, "0");;
-    var _month = _baseValue.month.toString().padLeft(2, "0");
-    var _day = _baseValue.day.toString().padLeft(2, "0");
+    var _year = paddedFormat(_baseValue.year  + _periodValue);
+    var _month = paddedFormat(_baseValue.month);
+    var _day = paddedFormat(_baseValue.day);
 
     _newValue = DateTime.parse(_year + "-" + _month + "-" + _day);
+  }
+
+  paddedFormat(int value) {
+    return value.toString().padLeft(2, "0");
+  }
+  
+  isMonthWith31(Object value) {
+    return endOfTheMonth(value) == 31 ? true : false;
+  }
+
+  endOfTheMonth(Object value) {
+    int month = value is DateTime ? value.month : value;
+    int maxDate;
+
+    if (month == 1) maxDate = 31;
+    else if (month == 2 && !isLeapYear(value)) maxDate = 28;
+    else if (month == 2 && isLeapYear(value)) maxDate = 29;
+    else if (month == 3) maxDate = 31;
+    else if (month == 4) maxDate = 30;
+    else if (month == 5) maxDate = 31;
+    else if (month == 6) maxDate = 30;
+    else if (month == 7) maxDate = 31;
+    else if (month == 8) maxDate = 31;
+    else if (month == 9) maxDate = 30;
+    else if (month == 10) maxDate = 31;
+    else if (month == 11) maxDate = 30;
+    else if (month == 12) maxDate = 31;
+
+    return maxDate;
+  }
+
+  isLeapYear(Object value) {
+      int year = value is DateTime ? value.year : value;
+
+      if (year % 4 == 0) return true;
+      else if (year % 400 == 0) return true;
+      else if (year % 100 == 0) return false;
+      else return false;
   }
 
 }
