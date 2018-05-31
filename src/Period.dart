@@ -21,6 +21,8 @@ class Period {
     _mls    = _util.paddedFormat(_baseValue.millisecond);
   }
 
+  Now() { return new DateTime.now(); }
+
   Adjust(int value) {
     _periodValue = value;
   }
