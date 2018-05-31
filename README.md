@@ -38,8 +38,7 @@ void main() {
 
 ## Features and bugs
 
-Suggest feature requests and bugs at the [issue tracker][tracker].
-[tracker]: https://github.com/emnljrz/periodart/issues
+Suggest feature requests and bugs at the https://github.com/emnljrz/periodart/issues
 
 
 **License** : BSD-2-Clause
