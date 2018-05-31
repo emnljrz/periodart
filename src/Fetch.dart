@@ -1,20 +1,24 @@
+import 'util.dart';
+
 class Fetch {
 
   DateTime _baseValue;
   String _year, _month, _day;
   String _hour, _minute, _second, _mls;
   String _timePeriod;
+  Util _util;
 
 
   Fetch(DateTime dateTimeValue) { 
+    _util = new Util();
   	_baseValue = dateTimeValue;
-    _year   = _baseValue.year.toString().padLeft(2, "0");
-    _month  = _baseValue.month.toString().padLeft(2, "0");
-    _day    = _baseValue.day.toString().padLeft(2, "0");
-    _hour   = _baseValue.hour.toString().padLeft(2, "0");
-    _minute = _baseValue.minute.toString().padLeft(2, "0");
-    _second = _baseValue.second.toString().padLeft(2, "0");
-    _mls    = _baseValue.millisecond.toString();
+    _year   = _util.paddedFormat(_baseValue.year);
+    _month  = _util.paddedFormat(_baseValue.month);
+    _day    = _util.paddedFormat(_baseValue.day);
+    _hour   = _util.paddedFormat(_baseValue.hour);
+    _minute = _util.paddedFormat(_baseValue.minute);
+    _second = _util.paddedFormat(_baseValue.second);
+    _mls    = _util.paddedFormat(_baseValue.millisecond);
   }
 
   TheDate() {

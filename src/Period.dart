@@ -1,11 +1,24 @@
+import 'util.dart';
+
 class Period {
   
   DateTime _baseValue;
   DateTime _newValue;
+  String _year, _month, _day;
+  String _hour, _minute, _second, _mls;
   int _periodValue = 0;
+  Util _util;
 
   Period(DateTime dateTimeValue) { 
+  	_util = new Util();
   	_baseValue = dateTimeValue;
+    _year   = _util.paddedFormat(_baseValue.year);
+    _month  = _util.paddedFormat(_baseValue.month);
+    _day    = _util.paddedFormat(_baseValue.day);
+    _hour   = _util.paddedFormat(_baseValue.hour);
+    _minute = _util.paddedFormat(_baseValue.minute);
+    _second = _util.paddedFormat(_baseValue.second);
+    _mls    = _util.paddedFormat(_baseValue.millisecond);
   }
 
   Adjust(int value) {
@@ -37,23 +50,19 @@ class Period {
   }
 
   ofMonths() {
-    var _year = paddedFormat(_baseValue.year);
-    var _month = paddedFormat(_baseValue.month + _periodValue);
-    var _day = _baseValue.day <= 30 ? paddedFormat(_baseValue.day) : paddedFormat(endOfTheMonth((_baseValue.month + _periodValue)));
+    _year   = _util.paddedFormat(_baseValue.year);
+    _month  = _util.paddedFormat(_baseValue.month + _periodValue);
+    _day    = _baseValue.day <= 30 ? _util.paddedFormat(_baseValue.day) : _util.paddedFormat(endOfTheMonth((_baseValue.month + _periodValue)));
 
-    _newValue = DateTime.parse(_year + "-" + _month + "-" + _day);
+    _newValue = DateTime.parse(_year + "-" + _month + "-" + _day + " " + _hour + ":" + _minute + ":" + _second + "." + _mls);
   }
   
   ofYears() {
-    var _year = paddedFormat(_baseValue.year  + _periodValue);
-    var _month = paddedFormat(_baseValue.month);
-    var _day = paddedFormat(_baseValue.day);
+    _year   = _util.paddedFormat(_baseValue.year  + _periodValue);
+    _month  = _util.paddedFormat(_baseValue.month);
+    _day    = _util.paddedFormat(_baseValue.day);
 
-    _newValue = DateTime.parse(_year + "-" + _month + "-" + _day);
-  }
-
-  paddedFormat(int value) {
-    return value.toString().padLeft(2, "0");
+    _newValue = DateTime.parse(_year + "-" + _month + "-" + _day + " " + _hour + ":" + _minute + ":" + _second + "." + _mls);
   }
   
   isMonthWith31(Object value) {
